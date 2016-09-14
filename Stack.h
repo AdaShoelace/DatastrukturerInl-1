@@ -10,6 +10,8 @@ class Stack
         Stack();
         void push(T data);
         T pop();
+        T peek();
+        int getSize();
         //ta bort innan inlämning
         void printStack();
     private:
@@ -29,20 +31,47 @@ class Stack
 template<class T>
 Stack<T>::Stack()
 {
-    head = 0;
-    current = 0;
-    tail = 0;
+    head = NULL;
+    current = NULL;
+    size = 0;
 }
 
+template<class T >
+T Stack<T>::pop()
+{
+    Node* temp;
+
+    if(NULL != head)
+    {
+        temp = head;
+        head = head->next;
+        T data = temp->data;
+        delete temp;
+        size--;
+        return data;
+    }
+    else
+    {
+       return 0;
+    }
+
+
+}
+
+template<class T>
+T Stack<T>::peek()
+{
+    return head->data;
+}
 
 template<class T>
 void Stack<T>::push(T data)
 {
     Node* n = new Node;
     n->data = data;
-    n->next = 0;
+    n->next = NULL;
 
-    if(0 != head)
+    if(NULL != head)
     {
         current = n;
         current->next = head;
@@ -57,6 +86,12 @@ void Stack<T>::push(T data)
     size++;
 }
 
+template<class T>
+int Stack<T>::getSize()
+{
+    return this->size;
+}
+
 //ta bort innan inlämning
 template<class T>
 void Stack<T>::printStack()
@@ -64,17 +99,18 @@ void Stack<T>::printStack()
 
     int index = 0; 
 
-    if(0 != head)
+    if(NULL != head)
     {
         current = head;
         
-        while(current->next != head && current->next != 0)
+        while(current->next != head && current->next != NULL)
         {
             std::cout << index << ": " << current->data << std::endl;
             current = current->next;
 
             index++;
         }
+        std::cout << index << ": " << current->data << std::endl;
     }
 
     else

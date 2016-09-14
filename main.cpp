@@ -8,10 +8,15 @@ int main()
 
     stack.push(30);
 
-    stack.printStack();
+    //stack.printStack();
     stack.push(35);
     
-    stack.printStack();
+   // stack.printStack();
+    std::cout << stack.peek() << std::endl; 
+    stack.pop();
 
+    stack.printStack();
+    stack.getSize();
+        
     return 0;
 }
