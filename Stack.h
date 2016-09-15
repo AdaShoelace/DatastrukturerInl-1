@@ -3,6 +3,11 @@
 
 #include <iostream>
 
+/*
+ * Pierre Leidbring 08/09/16
+ *
+ * Klass för stacken.
+ */
 template<class T>
 class Stack 
 {
@@ -12,7 +17,6 @@ class Stack
         T pop();
         T peek();
         int getSize();
-        //ta bort innan inlämning
         void printStack();
     private:
         int size; 
@@ -28,6 +32,7 @@ class Stack
         Node* tail;
 };
 
+//Konstruktor som sätter samtliga pekare till null vid initialisering.
 template<class T>
 Stack<T>::Stack()
 {
@@ -59,12 +64,14 @@ T Stack<T>::pop()
 
 }
 
+//Metod vilken returnerar värdet av datan i första elementet på stacken.
 template<class T>
 T Stack<T>::peek()
 {
     return head->data;
 }
 
+//Lägger till ett element överst i stacken.
 template<class T>
 void Stack<T>::push(T data)
 {
@@ -87,13 +94,14 @@ void Stack<T>::push(T data)
     size++;
 }
 
+//Returnerar antalet element i stacken.
 template<class T>
 int Stack<T>::getSize()
 {
     return this->size;
 }
 
-//ta bort innan inlämning
+//Metod som skriver ut alla element i stacken. Skrev i syfte av testning på egen hand.
 template<class T>
 void Stack<T>::printStack()
 {
