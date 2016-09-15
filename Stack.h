@@ -33,6 +33,7 @@ Stack<T>::Stack()
 {
     head = NULL;
     current = NULL;
+    tail = NULL;
     size = 0;
 }
 
@@ -110,7 +111,10 @@ void Stack<T>::printStack()
 
             index++;
         }
-        std::cout << index << ": " << current->data << std::endl;
+        if(current == tail)
+        {
+            std::cout << index << ": " << current->data << std::endl;
+        }
     }
 
     else
