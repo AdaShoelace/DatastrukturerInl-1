@@ -1,12 +1,17 @@
+/*
+ * Pierre Leidbring 08/09/16
+ */
 #include <iostream>
 #include "Stack.h"
 #include <string>
 
 using std::string;
 
-string parseString(string stringToParse);
+string parseString(const string& stringToParse);
 
-
+/*
+ * Testprogram för att mata in sträng och testa stack såväl som parsningen.
+*/
 int main()
 {
     bool again = true;
@@ -33,7 +38,11 @@ int main()
     return 0;
 }
 
-string parseString(string stringToParse)
+/*
+ * Funktion som tar en sträng och parsar denna för att kontrollera strängen enligt de regler
+ * som gavs i uppgiftsinstruktionen.
+ */
+string parseString(const string& stringToParse)
 {
     Stack<char> stack = Stack<char>();
     
